@@ -1,0 +1,51 @@
+@import "_variables";
+@import "_mixins";
+
+:host ::ng-deep {
+  .ax-control {
+    min-height: 90px;
+    padding: 6px 4px;
+
+    .label {
+      @include text($font-family-base, $font-large, $font-weight-bold);
+      color: $text-dark-grey;
+      margin: 0 0 6px 4px;
+    }
+
+    .disabled {
+      color: $text-light-grey;
+    }
+
+    .control {
+      @include text($font-family-base, $font-base, $font-weight-regular);
+      display: block;
+      padding: 6px 4px;
+      margin-bottom: 4px;
+      color: $text-dark-grey;
+      border: 1px solid $border-control-grey;
+      border-radius: 4px;
+    }
+
+    .control::placeholder {
+      color: $text-light-grey;
+      opacity: 1;
+    }
+
+    .control:hover {
+      background-color: $background-control-grey;
+    }
+
+    .control:focus {
+      outline: none;
+      border:1px solid $blue;
+      background-color: $white;
+      caret-color: $blue;
+    }
+
+    .error {
+      @include text($font-family-base, $font-small, $font-weight-regular);
+      margin-left: 4px;
+      color: $red;
+    }
+  }
+}

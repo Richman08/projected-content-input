@@ -1,0 +1,24 @@
+// Typographic variables
+
+// Good line-height and letter-spacing
+$line-height-base: 1.428571429;
+$normal-letter-spacing: normal;
+
+// Font
+$font-base: 16px;
+$font-coefficient-large: 1;
+$font-coefficient-normal: 0.875;
+$font-coefficient-small: 0.75;
+
+$font-large: round($font-base * $font-coefficient-large); // 16px
+$font-normal: round($font-base * $font-coefficient-normal); // 14px
+$font-small: round($font-base * $font-coefficient-small); // 12px
+
+$line-height-computed: round($font-base * $line-height-base);
+$line-height-large: floor($line-height-computed * $font-coefficient-normal); // 23px
+$line-height-normal: floor($line-height-computed * $font-coefficient-small); // 20px
+$line-height-small: floor($line-height-computed * $font-coefficient-small - 1); // 17px
+
+$font-family-base: Roboto, Arial, sans-serif;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
