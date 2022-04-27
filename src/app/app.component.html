@@ -8,7 +8,11 @@
              formControlName="control"
              placeholder="Enter the number"
              class="control">
-      <button *ngIf="form.get('control')?.value !== null && !isDisabled" ngProjectAs=".control" class="close-button" (click)="clearControl()">
+      <button *ngIf="form.get('control')?.value !== null
+           && !isDisabled"
+              ngProjectAs=".control"
+              class="close-button"
+              (click)="clearControl()">
         <i class="close-icon"></i>
       </button>
       <validator *ngIf="form.get('control')?.dirty
