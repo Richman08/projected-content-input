@@ -26,6 +26,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./src/app/styles",
+                "./src/app/styles/core",
+                "./src/app/styles/utils"
+              ]
+            },
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -94,6 +101,13 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./src/app/styles",
+                "./src/app/styles/core",
+                "./src/app/styles/utils"
+              ]
+            },
             "assets": [
               "src/favicon.ico",
               "src/assets"

@@ -1,0 +1,23 @@
+@import '_typography';
+
+// Universal Typographic Mixin
+@mixin text(
+  $font-family: $font-family-base,
+  $font-size: $font-base,
+  $font-weight: $font-weight-regular
+) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  letter-spacing: $normal-letter-spacing;
+
+  @if $font-size == $font-large {
+    line-height: $line-height-large;
+  } @else if $font-size == $font-normal {
+    line-height: $line-height-normal;
+  } @else if $font-size == $font-small {
+    line-height: $line-height-small;
+  } @else {
+    line-height: floor($font-size * $line-height-base);
+  }
+}

@@ -2,15 +2,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { SomeComponentComponent } from './components/some-component/some-component.component';
+import { AxControlComponent } from "./shared/ui/input/ax-control.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ValidatorComponent } from "./shared/validators/components/validator/validator.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    SomeComponentComponent
+    AxControlComponent,
+    ValidatorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

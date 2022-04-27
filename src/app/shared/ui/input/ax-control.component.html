@@ -1,0 +1,8 @@
+<div class="ax-control">
+  <label [ngClass]="{'disabled': isDisabled}"
+         class="label">
+    {{ labelText }}
+  </label>
+  <ng-content select=".control"></ng-content>
+  <ng-content select="validator"></ng-content>
+</div>

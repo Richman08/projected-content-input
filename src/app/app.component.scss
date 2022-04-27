@@ -1,0 +1,22 @@
+@import '_variables';
+@import '_mixins';
+
+.container {
+  padding: 20px 50px;
+
+  .title {
+    width: 100%;
+    @include text($font-family-base, 30px, $font-weight-bold);
+    color: $text-dark-grey;
+  }
+
+  .form {
+    display: flex;
+    width: inherit;
+    align-items: center;
+  }
+
+  .disabled {
+    color: $text-light-grey;
+  }
+}
