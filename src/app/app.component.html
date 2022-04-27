@@ -2,19 +2,23 @@
   <h1 class="title">Projected content control</h1>
   <ax-control [labelText]="labelText"
               [isDisabled]="isDisabled">
-    <input [formControl]="control"
-           [attr.disabled]="isDisabled ? '' : null"
-           placeholder="Enter the number"
-           class="control">
-    <validator *ngIf="control?.touched && control.value === '' && !isDisabled"
-               [when]="control.errors?.['required']">
+    <form [formGroup]="form" ngProjectAs=".control" class="form">
+      <input formControlName="control"
+             placeholder="Enter the number"
+             class="control">
+      <i *ngIf="form.get('control')?.value !== ''" (click)="clearControl()" class="close-icon"></i>
+    </form>
+    <validator *ngIf="form.get('control')?.dirty && form.get('control')?.value === '' && !isDisabled"
+               [when]="form.get('control')?.errors?.['required']">
       This input is required
     </validator>
-    <validator *ngIf="control?.invalid && control.value !== '' && control?.touched && control?.dirty  && !isDisabled"
-               [when]="control.errors?.['minLength']">
+    <validator *ngIf="form.get('control')?.invalid
+            && form.get('control')?.value !== ''
+            && !isDisabled"
+               [when]="form.get('control')?.errors?.['minLength']">
       Text should be at least 2 symbols
     </validator>
   </ax-control>
 
-  <button (click)="toggleDisableControl()">Click me to disable control</button>
+  <button (click)="toggleDisableControl()">Click to disable\enable control</button>
 </div>

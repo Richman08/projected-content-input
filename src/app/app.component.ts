@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,22 @@ import { FormControl, Validators } from "@angular/forms";
 })
 export class AppComponent {
   labelText: string = 'Some title';
-  control: FormControl = new FormControl('', [Validators.required, Validators.minLength(2)]);
   isDisabled: boolean = false;
-  icon: string = 'close'
+  form: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      'control': ['', [Validators.required, Validators.minLength(2)]]
+    })
+  }
+
+  clearControl(): void {
+    this.form.get('control')?.reset();
+    this.form.get('control')?.markAsDirty();
+  }
 
   toggleDisableControl(): void {
     this.isDisabled = !this.isDisabled;
+    this.form.get('control')?.disabled ? this.form.get('control')?.enable() : this.form.get('control')?.disable();
   }
 }
