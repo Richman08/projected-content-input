@@ -9,4 +9,14 @@
     @include text($font-family-base, 30px, $font-weight-bold);
     color: $text-dark-grey;
   }
+
+  .form {
+    display: flex;
+    width: inherit;
+    align-items: center;
+  }
+
+  .disabled {
+    color: $text-light-grey;
+  }
 }

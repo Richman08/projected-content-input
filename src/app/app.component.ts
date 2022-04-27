@@ -13,7 +13,7 @@ export class AppComponent {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      'control': ['', [Validators.required, Validators.minLength(2)]]
+      'control': [null, [Validators.required, Validators.minLength(2)]]
     })
   }
 

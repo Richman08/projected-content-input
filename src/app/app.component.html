@@ -1,24 +1,31 @@
 <div class="container">
   <h1 class="title">Projected content control</h1>
-  <ax-control [labelText]="labelText"
-              [isDisabled]="isDisabled">
-    <form [formGroup]="form" ngProjectAs=".control" class="form">
-      <input formControlName="control"
+
+  <form [formGroup]="form" class="form">
+    <ax-control [labelText]="labelText"
+                [isDisabled]="isDisabled">
+      <input [ngClass]="{'disabled': isDisabled}"
+             formControlName="control"
              placeholder="Enter the number"
              class="control">
-      <i *ngIf="form.get('control')?.value !== ''" (click)="clearControl()" class="close-icon"></i>
-    </form>
-    <validator *ngIf="form.get('control')?.dirty && form.get('control')?.value === '' && !isDisabled"
-               [when]="form.get('control')?.errors?.['required']">
-      This input is required
-    </validator>
-    <validator *ngIf="form.get('control')?.invalid
-            && form.get('control')?.value !== ''
-            && !isDisabled"
-               [when]="form.get('control')?.errors?.['minLength']">
-      Text should be at least 2 symbols
-    </validator>
-  </ax-control>
-
+      <button *ngIf="form.get('control')?.value !== null && !isDisabled" ngProjectAs=".control" class="close-button" (click)="clearControl()">
+        <i class="close-icon"></i>
+      </button>
+      <validator *ngIf="form.get('control')?.dirty
+              && (form.get('control')?.value === null
+              || form.get('control')?.value === '')
+              && !isDisabled"
+                 [when]="form.get('control')?.errors?.['required']">
+        This input is required
+      </validator>
+      <validator *ngIf="form.get('control')?.invalid
+              && form.get('control')?.value !== null
+              && form.get('control')?.value !== ''
+              && !isDisabled"
+                 [when]="form.get('control')?.errors?.['minLength']">
+        Text should be at least 2 symbols
+      </validator>
+    </ax-control>
+  </form>
   <button (click)="toggleDisableControl()">Click to disable\enable control</button>
 </div>
