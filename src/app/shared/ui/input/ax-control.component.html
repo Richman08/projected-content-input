@@ -2,7 +2,7 @@
   <label [ngClass]="{'disabled': isDisabled}"
          class="label">
     {{ labelText }}
-    <ng-content select="input"></ng-content>
   </label>
+  <ng-content select=".control"></ng-content>
   <ng-content select="validator"></ng-content>
 </div>

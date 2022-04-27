@@ -3,6 +3,7 @@
 
 :host ::ng-deep {
   .ax-control {
+    width: fit-content;
     min-height: 90px;
     padding: 6px 4px;
 
@@ -16,36 +17,67 @@
       color: $text-light-grey;
     }
 
-    .control {
-      @include text($font-family-base, $font-base, $font-weight-regular);
-      display: block;
-      padding: 6px 4px;
-      margin-bottom: 4px;
-      color: $text-dark-grey;
-      border: 1px solid $border-control-grey;
-      border-radius: 4px;
-    }
+    .form {
+      position: relative;
+      width: inherit;
+      display: flex;
+      align-items: center;
 
-    .control::placeholder {
-      color: $text-light-grey;
-      opacity: 1;
-    }
+      .control {
+        @include text($font-family-base, $font-base, $font-weight-regular);
+        display: block;
+        width: inherit;
+        padding: 6px 4px;
+        color: $text-dark-grey;
+        border: 1px solid $border-grey;
+        border-radius: 4px;
+      }
 
-    .control:hover {
-      background-color: $background-control-grey;
-    }
+      .control.ng-dirty.ng-invalid {
+        border-color: $red;
+        background: url("/../../assets/icons/warning.svg") no-repeat 83% 50%;
+        background-size: 18px;
+      }
 
-    .control:focus {
-      outline: none;
-      border:1px solid $blue;
-      background-color: $white;
-      caret-color: $blue;
-    }
+      .close-icon {
+        position: absolute;
+        right: 4px;
+        width: 20px;
+        height: 20px;
+        background-color: $background-grey;
+        border-radius: 50%;
+      }
 
-    .error {
-      @include text($font-family-base, $font-small, $font-weight-regular);
-      margin-left: 4px;
-      color: $red;
+      .close-icon:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 14px;
+        height: 14px;
+        background: url("/../../assets/icons/close.svg") no-repeat 95% 50%;
+      }
+
+      .close-icon:hover {
+        cursor: pointer;
+      }
+
+      .control::placeholder {
+        color: $text-light-grey;
+        opacity: 1;
+      }
+
+      .control:hover {
+        background-color: $background-grey;
+      }
+
+      .control:focus {
+        outline: none;
+        border: 1px solid $blue;
+        background-color: $white;
+        caret-color: $blue;
+      }
     }
   }
 }
